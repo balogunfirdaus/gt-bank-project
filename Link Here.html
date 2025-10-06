@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTBank Self Service Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #fff;
+      border-bottom: 3px solid #ddd;
+      padding: 20px 0;
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: auto;
+      flex-wrap: wrap;
+    }
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    .navbar nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .navbar .logo img {
+      max-height: 80px;
+      width: auto;
+    }
+
+    /* Title */
+    .page-title {
+      padding: 40px;
+      background: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .page-title h1 {
+      margin: 0;
+      font-size: 48px;
+    }
+
+    /* Layout */
+    .container {
+      display: flex;
+      gap: 40px;
+      width: 85%;
+      margin: 40px auto;
+    }
+    .content {
+      flex: 2;
+    }
+    .sidebar {
+      flex: 1;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .services {
+      columns: 2;
+      margin-top: 20px;
+    }
+    .services li {
+      margin: 5px 0;
+      color: black;
+      font-weight: bold;
+    }
+
+    /* Form */
+    .form-card h2 {
+      color: olive;
+    }
+    .form-card label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    .form-card input, .form-card select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .captcha-btn {
+      margin: 15px 0;
+      padding: 10px;
+      background: #eee;
+      border: 1px solid #aaa;
+      cursor: pointer;
+      width: 100%;
+    }
+    .submit-btn {
+      background: #e67e22;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .submit-btn:hover {
+      background: #d35400;
+    }
+
+    /* Sidebar */
+    .ad-banner {
+      width: 100%;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    .help-box {
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .help-box strong {
+      color: green;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top: 1px solid #ddd;
+      margin-top: 30px;
+    }
+    .socials img {
+      height: 25px;
+      margin: 0 5px;
+    }
+
+    /* MEDIA QUERIES */
+
+    /* Medium screens (Tablets) */
+    @media (max-width: 1024px) {
+      .page-title h1 {
+        font-size: 36px;
+      }
+      .container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .navbar .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .services {
+        columns: 1;
+      }
+    }
+
+    /* Small screens (Mobile) */
+    @media (max-width: 767px) {
+      .page-title h1 {
+        font-size: 28px;
+      }
+      .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .container {
+        width: 95%;
+        margin: 20px auto;
+      }
+      .card {
+        padding: 15px;
+      }
+      .form-card input, .form-card select {
+        font-size: 14px;
+      }
+      .submit-btn, .captcha-btn {
+        font-size: 14px;
+        padding: 10px;
+      }
+      footer {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About GTBank</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Media</a></li>
+        </ul>
+      </nav>
+      <div class="logo">
+        <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/GTCO.png" alt="GTBank Logo">
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="content">
+      <!-- Left Section -->
+      <div class="card">
+        <p>
+          GTBank Self Service Portal provides you with a platform to access and execute 
+          the following services (from any location):
+        </p>
+        <ul class="services">
+          <li>ACCOUNT FREEZE</li>
+          <li>BVN/NIN LINKING</li>
+          <li>DISPENSE ERROR</li>
+          <li>NRN CARD COURIER REQUEST</li>
+          <li>REFERENCE UPLOAD/CONFIRMATION</li>
+        </ul>
+      </div>
+
+      <!-- Form Section -->
+      <div class="card form-card">
+        <h2>SERVICE SELECTOR</h2>
+        <p>Please select the service you would like to access below:</p>
+
+        <form>
+          <label for="service">SERVICE TYPE</label>
+          <select id="service" required>
+            <option>Select an Option</option>
+            <option>Account Freeze</option>
+            <option>BVN/NIN Linking</option>
+            <option>Dispense Error</option>
+            <option>NRN Card Request</option>
+            <option>Reference Upload</option>
+          </select>
+
+          <label for="acct">GTBANK ACCOUNT NUMBER (NUBAN)</label>
+          <input type="text" id="acct" placeholder="Enter Account Number">
+
+          <label for="bvn">BANK VERIFICATION NUMBER</label>
+          <input type="text" id="bvn" placeholder="Enter BVN">
+
+          <button type="button" class="captcha-btn">Generate Captcha Image</button>
+          <input type="text" placeholder="Enter Captcha">
+
+          <button type="submit" class="submit-btn">SUBMIT FORM</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <aside class="sidebar">
+      <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/quicklinks.jpg" alt="GTBank Ad" class="ad-banner">
+      <div class="help-box">
+        <p><strong>Need some assistance?</strong><br>
+        <a href="#">Click here to learn more about process.</a></p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      Terms & policies | GtBlog | GTCrea8 | NdaniTV <br>
+      © 2025 Guaranty Trust Bank Limited. RC 152321 (Licensed by the Central Bank of Nigeria). All Rights Reserved.
+    </p>
+    <div class="socials">
+      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-fb.png" alt="Facebook"></a>
+      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-tw.png" alt="Twitter"></a>
+      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-ig.png" alt="Instagram"></a>
+      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-yt.png" alt="YouTube"></a>
+    </div>
+  </footer>
+
+</body>
+</html>

