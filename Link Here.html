@@ -3,299 +3,524 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GTBank Self Service Portal</title>
+  <title>Self Service Portal - GTBank</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f2f2f2;
+      background: #f0f0f0;
       color: #333;
     }
 
-    /* Navbar */
-    .navbar {
+    /* Header */
+    .header {
       background: #fff;
-      border-bottom: 3px solid #ddd;
-      padding: 20px 0;
-    }
-    .navbar .container {
+      padding: 15px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 90%;
-      margin: auto;
-      flex-wrap: wrap;
-    }
-    .navbar nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
-    .navbar nav a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-    }
-    .navbar .logo img {
-      max-height: 80px;
-      width: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    /* Title */
-    .page-title {
-      padding: 40px;
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #e05206;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    /* Title Section */
+    .title-section {
       background: #fff;
-      margin-bottom: 30px;
+      padding: 30px 40px;
       text-align: center;
     }
-    .page-title h1 {
-      margin: 0;
-      font-size: 48px;
+
+    .title-section h1 {
+      font-size: 2rem;
+      color: #333;
+      font-weight: 600;
     }
 
-    /* Layout */
-    .container {
-      display: flex;
-      gap: 40px;
-      width: 85%;
+    /* Main Content */
+    .main-content {
+      max-width: 1200px;
       margin: 40px auto;
-    }
-    .content {
-      flex: 2;
-    }
-    .sidebar {
-      flex: 1;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
 
-    /* Cards */
-    .card {
+    /* Left Column - Form */
+    .form-section {
       background: #fff;
-      padding: 20px;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .services {
-      columns: 2;
-      margin-top: 20px;
-    }
-    .services li {
-      margin: 5px 0;
-      color: black;
-      font-weight: bold;
+      padding: 40px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
-    /* Form */
-    .form-card h2 {
-      color: olive;
+    .intro-text {
+      margin-bottom: 30px;
+      line-height: 1.6;
+      color: #555;
     }
-    .form-card label {
+
+    .services-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .services-list li {
+      list-style: none;
+      padding-left: 20px;
+      position: relative;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .services-list li::before {
+      content: "•";
+      color: #e05206;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      font-size: 18px;
+    }
+
+    .service-selector {
+      background: #f9f9f9;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .service-selector h2 {
+      color: #6b8e23;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .service-selector p {
+      color: #999;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
       display: block;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .form-card input, .form-card select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .captcha-btn {
-      margin: 15px 0;
-      padding: 10px;
-      background: #eee;
-      border: 1px solid #aaa;
-      cursor: pointer;
-      width: 100%;
-    }
-    .submit-btn {
-      background: #e67e22;
-      color: #fff;
-      padding: 12px;
-      border: none;
-      width: 100%;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .submit-btn:hover {
-      background: #d35400;
+      margin-bottom: 8px;
+      color: #666;
+      font-size: 13px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
-    /* Sidebar */
-    .ad-banner {
+    .form-group input,
+    .form-group select {
       width: 100%;
-      margin-bottom: 20px;
-      border-radius: 5px;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      background: #fff;
     }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 35px;
+    }
+
+    .captcha-btn {
+      background: #ccc;
+      border: 1px solid #999;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .captcha-btn:hover {
+      background: #bbb;
+    }
+
+    .captcha-input {
+      margin-top: 15px;
+    }
+
+    .submit-btn {
+      background: #e97d51;
+      color: #fff;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .submit-btn:hover {
+      background: #d66b3f;
+    }
+
+    /* Right Column - Promotional */
+    .promo-section {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .promo-card {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .promo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .help-box {
       background: #fff;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      padding: 25px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .help-box strong {
-      color: green;
+
+    .help-icon {
+      background: #2e7d32;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    .help-text h3 {
+      color: #2e7d32;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+
+    .help-text p {
+      color: #666;
+      font-size: 13px;
     }
 
     /* Footer */
-    footer {
+    .footer {
       background: #fff;
-      padding: 20px;
-      text-align: center;
-      border-top: 1px solid #ddd;
-      margin-top: 30px;
-    }
-    .socials img {
-      height: 25px;
-      margin: 0 5px;
+      padding: 30px 40px;
+      margin-top: 60px;
     }
 
-    /* MEDIA QUERIES */
+    .footer-links {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
 
-    /* Medium screens (Tablets) */
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-nav a {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .footer-nav a:hover {
+      color: #e05206;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-links a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .social-links .facebook { background: #3b5998; }
+    .social-links .twitter { background: #1da1f2; }
+    .social-links .instagram { background: #e4405f; }
+    .social-links .youtube { background: #ff0000; }
+
+    .copyright {
+      color: #666;
+      font-size: 12px;
+      line-height: 1.6;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    /* Responsive */
     @media (max-width: 1024px) {
-      .page-title h1 {
-        font-size: 36px;
+      .main-content {
+        grid-template-columns: 1fr;
       }
-      .container {
-        flex-direction: column;
-        gap: 30px;
-      }
-      .navbar .container {
-        flex-direction: column;
-        text-align: center;
-      }
-      .services {
-        columns: 1;
+
+      .services-list {
+        grid-template-columns: 1fr;
       }
     }
 
-    /* Small screens (Mobile) */
-    @media (max-width: 767px) {
-      .page-title h1 {
-        font-size: 28px;
-      }
-      .navbar nav ul {
+    @media (max-width: 768px) {
+      .header {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
+        padding: 20px;
       }
-      .container {
-        width: 95%;
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .title-section {
+        padding: 20px;
+      }
+
+      .title-section h1 {
+        font-size: 1.5rem;
+      }
+
+      .main-content {
+        padding: 0 15px;
         margin: 20px auto;
       }
-      .card {
+
+      .form-section {
+        padding: 25px;
+      }
+
+      .service-selector {
+        padding: 20px;
+      }
+
+      .footer {
+        padding: 20px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-nav {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-links {
+        font-size: 12px;
+        gap: 10px;
+      }
+
+      .title-section h1 {
+        font-size: 1.3rem;
+      }
+
+      .form-section {
+        padding: 20px;
+      }
+
+      .service-selector {
         padding: 15px;
       }
-      .form-card input, .form-card select {
-        font-size: 14px;
+
+      .service-selector h2 {
+        font-size: 1.1rem;
       }
-      .submit-btn, .captcha-btn {
-        font-size: 14px;
-        padding: 10px;
+
+      .submit-btn {
+        width: 100%;
+        padding: 12px;
       }
-      footer {
-        font-size: 12px;
+
+      .help-box {
+        padding: 15px;
+      }
+
+      .social-links a {
+        width: 32px;
+        height: 32px;
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Navigation -->
-  <header class="navbar">
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About GTBank</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="#">Media</a></li>
-        </ul>
-      </nav>
-      <div class="logo">
-        <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/GTCO.png" alt="GTBank Logo">
-      </div>
+  <!-- Header -->
+  <header class="header">
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About GTBank</a></li>
+      <li><a href="#">Products</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Careers</a></li>
+      <li><a href="#">Media</a></li>
+    </ul>
+    <div class="logo">
+      <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/GTCO.png" alt="GTCO Logo">
     </div>
   </header>
 
+  <!-- Title Section -->
+  <section class="title-section">
+    <h1>Self Service Portal</h1>
+  </section>
+
   <!-- Main Content -->
-  <main class="container">
-    <div class="content">
-      <!-- Left Section -->
-      <div class="card">
-        <p>
-          GTBank Self Service Portal provides you with a platform to access and execute 
-          the following services (from any location):
-        </p>
-        <ul class="services">
-          <li>ACCOUNT FREEZE</li>
-          <li>BVN/NIN LINKING</li>
-          <li>DISPENSE ERROR</li>
-          <li>NRN CARD COURIER REQUEST</li>
-          <li>REFERENCE UPLOAD/CONFIRMATION</li>
-        </ul>
+  <main class="main-content">
+    <!-- Left Column - Form -->
+    <div class="form-section">
+      <div class="intro-text">
+        <p>GTBank Self Service Portal provides you with a platform to access and execute the following services (from any location):</p>
       </div>
 
-      <!-- Form Section -->
-      <div class="card form-card">
-        <h2>SERVICE SELECTOR</h2>
-        <p>Please select the service you would like to access below:</p>
+      <ul class="services-list">
+        <li>ACCOUNT FREEZE</li>
+        <li>NRN CARD COURIER REQUEST</li>
+        <li>BVN/NIN LINKING</li>
+        <li>REFERENCE UPLOAD/CONFIRMATION</li>
+        <li>DISPENSE ERROR</li>
+        <li></li>
+      </ul>
+
+      <div class="service-selector">
+        <h2>Service Selector</h2>
+        <p>Please select the service you would like to access below</p>
 
         <form>
-          <label for="service">SERVICE TYPE</label>
-          <select id="service" required>
-            <option>Select an Option</option>
-            <option>Account Freeze</option>
-            <option>BVN/NIN Linking</option>
-            <option>Dispense Error</option>
-            <option>NRN Card Request</option>
-            <option>Reference Upload</option>
-          </select>
+          <div class="form-group">
+            <label>SERVICE TYPE</label>
+            <select>
+              <option>Select an Option</option>
+              <option>Account Freeze</option>
+              <option>BVN/NIN Linking</option>
+              <option>Dispense Error</option>
+              <option>NRN Card Courier Request</option>
+              <option>Reference Upload/Confirmation</option>
+            </select>
+          </div>
 
-          <label for="acct">GTBANK ACCOUNT NUMBER (NUBAN)</label>
-          <input type="text" id="acct" placeholder="Enter Account Number">
+          <div class="form-group">
+            <label>GTBank Account Number (NUBAN)</label>
+            <input type="text" placeholder="">
+          </div>
 
-          <label for="bvn">BANK VERIFICATION NUMBER</label>
-          <input type="text" id="bvn" placeholder="Enter BVN">
+          <div class="form-group">
+            <label>Bank Verification Number</label>
+            <input type="text" placeholder="">
+          </div>
 
-          <button type="button" class="captcha-btn">Generate Captcha Image</button>
-          <input type="text" placeholder="Enter Captcha">
+          <div class="form-group">
+            <button type="button" class="captcha-btn">Generate Captcha Image</button>
+            <input type="text" class="captcha-input" placeholder="" style="margin-top: 15px;">
+          </div>
 
-          <button type="submit" class="submit-btn">SUBMIT FORM</button>
+          <button type="submit" class="submit-btn">Submit Form</button>
         </form>
       </div>
     </div>
 
-    <!-- Right Section -->
-    <aside class="sidebar">
-      <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/quicklinks.jpg" alt="GTBank Ad" class="ad-banner">
-      <div class="help-box">
-        <p><strong>Need some assistance?</strong><br>
-        <a href="#">Click here to learn more about process.</a></p>
+    <!-- Right Column - Promotional -->
+    <div class="promo-section">
+      <div class="promo-card">
+        <img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/quicklinks.jpg" alt="GTBank 737 Banking">
       </div>
-    </aside>
+
+      <div class="help-box">
+        <div class="help-icon">?</div>
+        <div class="help-text">
+          <h3>Need some assistance?</h3>
+          <p>Click here to learn more about process.</p>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- Footer -->
-  <footer>
-    <p>
-      Terms & policies | GtBlog | GTCrea8 | NdaniTV <br>
+  <footer class="footer">
+    <div class="footer-links">
+      <ul class="footer-nav">
+        <li><a href="#">Terms & policies</a></li>
+        <li><a href="#">635 blog</a></li>
+        <li><a href="#">GTCrea8</a></li>
+        <li><a href="#">NdaniTV</a></li>
+      </ul>
+
+      <div class="social-links">
+        <a href="#" class="facebook">f</a>
+        <a href="#" class="twitter">t</a>
+        <a href="#" class="instagram">📷</a>
+        <a href="#" class="youtube">▶</a>
+      </div>
+    </div>
+
+    <div class="copyright">
       © 2025 Guaranty Trust Bank Limited. RC 152321 (Licensed by the Central Bank of Nigeria). All Rights Reserved.
-    </p>
-    <div class="socials">
-      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-fb.png" alt="Facebook"></a>
-      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-tw.png" alt="Twitter"></a>
-      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-ig.png" alt="Instagram"></a>
-      <a href="#"><img src="https://aonew.gtbank.com/SelfServiceApp_final/assets/img/social-icons-yt.png" alt="YouTube"></a>
     </div>
   </footer>
-
 </body>
 </html>
